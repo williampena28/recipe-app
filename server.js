@@ -1,9 +1,13 @@
 const express = require('express')
 const path = require('path')
-// logs the different requrests to our server
+// logs the different requests to our server
 const logger = require('morgan')
+const axios = require('axios');
 // cross origin access
 const cors = require('cors')
+
+require('dotenv').config();
+require('./config/database.js')
 
 const app = express()
 
@@ -16,14 +20,20 @@ app.use(express.json())
 
 app.use(express.static(path.join(__dirname, 'build')))
 
-app.get("/test_route", (req, res) =>
+app.get("/", (req, res) =>
 {
     res.send("Good route!")
 })
 
-
-
-
+app.get('/get-meal-data', async (req, res) =>
+{
+    // call API
+    // this route gives us all meals with the first letter 'a'
+    let response = await axios("https://www.themealdb.com/api/json/v1/1/search.php?f=c")
+    let meal = response.data;
+    // console.log(meal)
+    res.json(meal)
+})
 
 app.get('/*', (req, res) =>
 {
