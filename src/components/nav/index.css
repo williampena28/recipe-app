@@ -1,0 +1,9 @@
+.nav-bar
+{
+    background-color:aquamarine;
+}
+.button-layout
+{
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,11 +1,11 @@
 import React from 'react'
-import RecipePage from './../../components/Display_Recipes';
+import DisplayRecipes from './../../components/display_recipes';
 
 const MainPage = () => {
   return (
     <div>
       <h1>Recipe List:</h1>
-      <RecipePage/>
+      <DisplayRecipes/>
     </div>
   )
 }

@@ -35,6 +35,15 @@ app.get('/get-meal-data', async (req, res) =>
     res.json(meal)
 })
 
+//route to call the api for a specific meal via mealId
+
+app.get('/get-meal/:mealId', async (req, res) =>
+{
+    let response = await axios(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${req.params.mealId}`)
+    let meal = response.data;
+    res.json(meal)
+})
+
 app.get('/*', (req, res) =>
 {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))

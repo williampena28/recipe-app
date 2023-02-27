@@ -1,12 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import './index.css'
 
 const Nav = () => {
+
   return (
-    <div>
+    <div className='nav-bar'>
         <h2>Nav Bar</h2>
-        <div>
-            <button>Main Page</button>
-            <button>My Bookmarks</button>
+        <div className='button-layout'>
+          <Link to='/'><button>Main Page</button></Link>
+          <Link to='/bookmarks'><button>My Bookmarks</button></Link>
         </div>
     </div>
   )
