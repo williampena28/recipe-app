@@ -22,14 +22,14 @@ const RecipePage = () => {
   useEffect(() =>
   {
     apiCall()
-  }, []);
+  });
 
   const mealJSX = meal.map((meal, index) =>
   {
     return(
       <div key={index}>
         <h1>{meal.strMeal}</h1>
-        <img src={meal.strMealThumb} alt="Meal Picture"/>
+        <img src={meal.strMealThumb} alt="Meal"/>
         <section>
           <h2>How to make:</h2>
           <p>{meal.strInstructions}</p>

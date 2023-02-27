@@ -9,6 +9,8 @@ const cors = require('cors')
 require('dotenv').config();
 require('./config/database.js')
 
+const MyMeal = require('./models/mymeals.js')
+
 const app = express()
 
 // access
@@ -35,13 +37,29 @@ app.get('/get-meal-data', async (req, res) =>
     res.json(meal)
 })
 
-//route to call the api for a specific meal via mealId
+// route to call the api for a specific meal via mealId
 
 app.get('/get-meal/:mealId', async (req, res) =>
 {
     let response = await axios(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${req.params.mealId}`)
     let meal = response.data;
     res.json(meal)
+})
+
+// add the meal to our bookmarks
+app.post('/add-to-bookmarks', async (req, res) =>
+{
+    let newMeal = await MyMeal.create(req.body);
+    res.send(newMeal);
+})
+
+// delete a meal from our bookmarks
+app.delete('/delete-from-bookmarks/:mealId', async (req, res) =>
+{
+    let response = await MyMeal.findOneAndDelete(req.params.mealId).then((meal) =>
+    {
+        res.status(200).json(meal);
+    });
 })
 
 app.get('/*', (req, res) =>
