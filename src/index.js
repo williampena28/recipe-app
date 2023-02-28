@@ -7,9 +7,9 @@ import{
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
-import DisplayRecipes from './components/display_recipes';
 import RecipePage from './pages/SingleRecipe';
 import DisplayBookmarks from './components/display_bookmarks';
+import MainPage from './pages/Main';
 
 // / - render the recipe list from the api call
 // /recipie/:id - render a single recipe by getting it's id from the url
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <DisplayRecipes/>
+        element: <MainPage/>
       },
       {
         path: "/recipe/:id",
