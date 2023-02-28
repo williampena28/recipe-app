@@ -1,5 +1,5 @@
 import React from 'react'
-import DisplayRecipes from './../../components/display_recipes';
+import DisplayRecipes from '../../components/display_recipes';
 
 const MainPage = () => {
   return (
