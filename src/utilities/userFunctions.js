@@ -63,11 +63,22 @@ export const addToBookMarks = async (meal) =>
 
     // return the meal data to our database and save it
     let response = await axios({
-        method: "POST",
-        url: "/add-to-bookmarks",
+        method: 'POST',
+        url: '/add-to-bookmarks',
         data: data
     })
 
-    console.log(data);
-    console.log("Meal has been added to bookmarks!")
+    console.log(response);
+    console.log('Meal has been added to bookmarks!')
+}
+
+// function to get the bookmarks data from the database
+export const getBookMarkData = async () =>
+{
+    let bookmarkData = await axios({
+        method: 'GET',
+        url: '/get-bookmarks-data'
+    });
+
+    return bookmarkData
 }

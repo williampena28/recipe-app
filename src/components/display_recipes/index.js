@@ -32,7 +32,10 @@ const DisplayRecipes = () => {
   })
 
   return (
-    <div>{mealJSX}</div>
+    <div className='meal-wrap'>
+      <h1>Recipe List:</h1>
+      {mealJSX}
+    </div>
   )
 }
 

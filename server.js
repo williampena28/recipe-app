@@ -46,6 +46,13 @@ app.get('/get-meal/:mealId', async (req, res) =>
     res.json(meal)
 })
 
+// get meal data from the bookmarks db
+app.get('/get-bookmarks-data', async (req, res) =>
+{
+    let bookmarks = await MyMeal.find({})
+    res.send(bookmarks);
+})
+
 // add the meal to our bookmarks
 app.post('/add-to-bookmarks', async (req, res) =>
 {
