@@ -10,6 +10,7 @@ import{
 import RecipePage from './pages/SingleRecipe';
 import DisplayBookmarks from './components/display_bookmarks';
 import MainPage from './pages/Main';
+import SingleBookmarkPage from './pages/SingleBookmark';
 
 // / - render the recipe list from the api call
 // /recipie/:id - render a single recipe by getting it's id from the url
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-    children: [
+    children: 
+    [
       {
         path: "/",
         element: <MainPage/>
@@ -30,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/bookmarks",
-        element: <DisplayBookmarks/>
+        element: <DisplayBookmarks/>,
+      },
+      {
+        path: "/bookmark/:_id",
+        element: <SingleBookmarkPage/>
       }
     ]
   }

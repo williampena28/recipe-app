@@ -82,3 +82,14 @@ export const getBookMarkData = async () =>
 
     return bookmarkData
 }
+
+// function to get bookmark data by their _id
+export const getBookmarkById = async (id) =>
+{
+    let bookmark = await axios({
+        method: 'GET',
+        url: `/get-bookmark/${id}`
+    })
+
+    return bookmark;
+}

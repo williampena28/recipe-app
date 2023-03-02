@@ -4,3 +4,8 @@
     position: relative;
     right: 35%;
 }
+.bookmark:hover
+{
+    cursor: pointer;
+    color: grey;
+}

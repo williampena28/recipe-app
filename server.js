@@ -53,6 +53,13 @@ app.get('/get-bookmarks-data', async (req, res) =>
     res.send(bookmarks);
 })
 
+// get bookmark data by id
+app.get('/get-bookmark/:id', async (req, res) =>
+{
+    let response = await MyMeal.findById(req.params.id)
+    res.send(response);
+})
+
 // add the meal to our bookmarks
 app.post('/add-to-bookmarks', async (req, res) =>
 {

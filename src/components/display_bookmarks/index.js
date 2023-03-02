@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { getBookMarkData } from '../../utilities/userFunctions'
+import { useNavigate } from 'react-router-dom'
+import './index.css'
 
 const DisplayBookmarks = () => {
+
+  const navigate = useNavigate();
 
   const [bookmarks, setBookmarks] = useState([]);
   
@@ -22,7 +26,7 @@ const DisplayBookmarks = () => {
   let bookmarkJSX = bookmarks.map((bookmark, index) =>
   {
     return(
-      <div className='card' key={index}>
+      <div className='card' key={index} onClick={() => navigate(`/bookmark/${bookmark._id}`)}>
         <p>{bookmark.name}</p>
       </div>
     )
