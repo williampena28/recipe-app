@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getMealById } from '../../ultilities/getMealData';
-
+import { getMealById } from '../../utilities/userFunctions';
+import AddToBookMarks from '../../components/add_to_bookmarks_button';
+import './index.css'
 
 const RecipePage = () => {
 
@@ -27,7 +28,7 @@ const RecipePage = () => {
   const mealJSX = meal.map((meal, index) =>
   {
     return(
-      <div key={index}>
+      <div className='recipe-info' key={index}>
         <h1>{meal.strMeal}</h1>
         <img src={meal.strMealThumb} alt="Meal"/>
         <section>
@@ -39,7 +40,10 @@ const RecipePage = () => {
   })
 
   return (
-    <div>{mealJSX}</div>
+    <div className='recipe-box'>
+      <AddToBookMarks currentMeal={meal}/>
+      {mealJSX}
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getMeals } from '../../ultilities/getMealData'
+import { getMeals } from '../../utilities/userFunctions.js'
 
 const DisplayRecipes = () => {
 
@@ -14,7 +14,7 @@ const DisplayRecipes = () => {
     let response = await getMeals();
     let mealList = response.data.meals;
     setRecipes(mealList)
-    // console.log(mealList);
+    console.log(mealList);
   }
 
   useEffect(() =>

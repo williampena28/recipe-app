@@ -29,44 +29,45 @@ export const addToBookMarks = async (meal) =>
     // Adding a seperate array of ingredient and tag objects to serperate variables
     const ingrediantsList = 
     [
-        {ingrediant: meal.strIngrediant1, measure: meal.strMeasure1},
-        {ingrediant: meal.strIngrediant2, measure: meal.strMeasure2},
-        {ingrediant: meal.strIngrediant3, measure: meal.strMeasure3},
-        {ingrediant: meal.strIngrediant4, measure: meal.strMeasure4},
-        {ingrediant: meal.strIngrediant5, measure: meal.strMeasure5},
-        {ingrediant: meal.strIngrediant6, measure: meal.strMeasure6},
-        {ingrediant: meal.strIngrediant7, measure: meal.strMeasure7},
-        {ingrediant: meal.strIngrediant8, measure: meal.strMeasure8},
-        {ingrediant: meal.strIngrediant9, measure: meal.strMeasure9},
-        {ingrediant: meal.strIngrediant10, measure: meal.strMeasure10},
-        {ingrediant: meal.strIngrediant11, measure: meal.strMeasure11},
-        {ingrediant: meal.strIngrediant12, measure: meal.strMeasure12},
-        {ingrediant: meal.strIngrediant13, measure: meal.strMeasure13},
-        {ingrediant: meal.strIngrediant14, measure: meal.strMeasure14},
-        {ingrediant: meal.strIngrediant15, measure: meal.strMeasure15},
-        {ingrediant: meal.strIngrediant16, measure: meal.strMeasure16},
-        {ingrediant: meal.strIngrediant17, measure: meal.strMeasure17},
-        {ingrediant: meal.strIngrediant18, measure: meal.strMeasure18},
-        {ingrediant: meal.strIngrediant19, measure: meal.strMeasure19},
-        {ingrediant: meal.strIngrediant20, measure: meal.strMeasure20},
+        {ingrediant: meal[0].strIngredient1, measure: meal[0].strMeasure1},
+        {ingrediant: meal[0].strIngredient2, measure: meal[0].strMeasure2},
+        {ingrediant: meal[0].strIngredient3, measure: meal[0].strMeasure3},
+        {ingrediant: meal[0].strIngredient4, measure: meal[0].strMeasure4},
+        {ingrediant: meal[0].strIngredient5, measure: meal[0].strMeasure5},
+        {ingrediant: meal[0].strIngredient6, measure: meal[0].strMeasure6},
+        {ingrediant: meal[0].strIngredient7, measure: meal[0].strMeasure7},
+        {ingrediant: meal[0].strIngredient8, measure: meal[0].strMeasure8},
+        {ingrediant: meal[0].strIngredient9, measure: meal[0].strMeasure9},
+        {ingrediant: meal[0].strIngredient10, measure: meal[0].strMeasure10},
+        {ingrediant: meal[0].strIngredient11, measure: meal[0].strMeasure11},
+        {ingrediant: meal[0].strIngredient12, measure: meal[0].strMeasure12},
+        {ingrediant: meal[0].strIngredient13, measure: meal[0].strMeasure13},
+        {ingrediant: meal[0].strIngredient14, measure: meal[0].strMeasure14},
+        {ingrediant: meal[0].strIngredient15, measure: meal[0].strMeasure15},
+        {ingrediant: meal[0].strIngredient16, measure: meal[0].strMeasure16},
+        {ingrediant: meal[0].strIngredient17, measure: meal[0].strMeasure17},
+        {ingrediant: meal[0].strIngredient18, measure: meal[0].strMeasure18},
+        {ingrediant: meal[0].strIngredient19, measure: meal[0].strMeasure19},
+        {ingrediant: meal[0].strIngredient20, measure: meal[0].strMeasure20},
     ]
 
     const data =
     {
-        name: `${meal.strMeal}`,
-        category: `${meal.strCategory}`,
-        area: `${meal.strArea}`,
-        imgUrl: `${meal.strMealThumb}`,
-        instructions: `${meal.strInstructions}`,
+        name: `${meal[0].strMeal}`,
+        category: `${meal[0].strCategory}`,
+        area: `${meal[0].strArea}`,
+        imgUrl: `${meal[0].strMealThumb}`,
+        instructions: `${meal[0].strInstructions}`,
         ingrediants: ingrediantsList
     }
 
-    console.log(data);
-
     // return the meal data to our database and save it
-    // let response = await axios({
-    //     method: "POST",
-    //     url: "/add-to-bookmarks",
-    //     data: 
-    // })
+    let response = await axios({
+        method: "POST",
+        url: "/add-to-bookmarks",
+        data: data
+    })
+
+    console.log(data);
+    console.log("Meal has been added to bookmarks!")
 }
