@@ -8,12 +8,14 @@ const SingleBookmarkPage = () => {
   let bookmarkId = useParams();
 
   const [bookmark, setBookmark] = useState([])
-
+  console.log(bookmark);
   const getBookmark = async () =>
   {
+    // get specific bookmark from mongodb by id and set it to our bookmark state
     let response = await getBookmarkById(bookmarkId._id)
-    setBookmark(response.data)
-    console.log(response)
+    let jsonData = []
+    jsonData.push(response.data)
+    setBookmark(jsonData)
   }
 
   useEffect(() =>
@@ -21,16 +23,29 @@ const SingleBookmarkPage = () => {
     getBookmark();
   }, []);
 
-//   const bookmarkJSX = bookmark.map((bookmark, index) =>
-//   {
-//     return(
-//         <h1>bookmark.name</h1>
-//     )
-//   })
+  const bookmarkJSX = bookmark.map((obj, index) =>
+  {
+    return(
+      <div className='bookmark' key={index}>
+        <h1>
+          {obj.name}
+        </h1>
+        <img src={obj.imgUrl} alt="Meal"/>
+        <section>
+          <h2>
+            How to make:
+          </h2>
+          <p>
+            {obj.instructions}
+          </p>
+        </section>
+      </div>
+    )
+  })
 
   return (
     <div className='bookmark-wrap'>
-        {/* {bookmarkJSX} */}
+        {bookmarkJSX}
     </div>
   )
 }

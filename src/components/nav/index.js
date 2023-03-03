@@ -6,7 +6,7 @@ const Nav = () => {
 
   return (
     <div className='nav-bar'>
-        <h2>Nav Bar</h2>
+        <h2>Recipe List App</h2>
         <div className='button-layout'>
           <Link to='/'><button>Main Page</button></Link>
           <Link to='/bookmarks'><button>My Bookmarks</button></Link>

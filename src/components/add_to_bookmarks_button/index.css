@@ -1,10 +1,10 @@
-.bookmark
+.add-bookmark-button
 {
     display: inline-block;
     position: relative;
     right: 35%;
 }
-.bookmark:hover
+.add-bookmark-button:hover
 {
     cursor: pointer;
     color: grey;
