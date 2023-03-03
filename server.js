@@ -76,6 +76,16 @@ app.delete('/delete-from-bookmarks/:mealId', async (req, res) =>
     });
 })
 
+// UPDATE instructions in our bookmarks
+app.put('/update_bookmark/:mealId', async (req, res) =>
+{
+    let updateInfo = req.body
+    let response = await MyMeal.findByIdAndUpdate(req.params.mealId, updateInfo).then((meal) =>
+    {{
+        res.status(200).json(meal);
+    }})
+})
+
 app.get('/*', (req, res) =>
 {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))

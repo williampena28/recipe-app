@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getBookmarkById } from '../../utilities/userFunctions';
 import './index.css'
 import DeleteBookmark from '../../components/delete_bookmark';
+import UpdateForm from '../../components/update_bookmark_form';
 
 const SingleBookmarkPage = () => {
   // grab the mongodb _id param from the url
@@ -48,6 +49,7 @@ const SingleBookmarkPage = () => {
     <div className='bookmark-wrap'>
       <DeleteBookmark/>
         {bookmarkJSX}
+      <UpdateForm/>
     </div>
   )
 }

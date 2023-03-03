@@ -17,7 +17,7 @@ const DeleteBookmark = () => {
     }
 
   return (
-    <div className='delete-bookmark-button' onClick={handleClick}>DeleteBookmark</div>
+    <div className='delete-bookmark-button' onClick={handleClick}>Delete bookmark</div>
   )
 }
 

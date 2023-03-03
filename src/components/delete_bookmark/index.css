@@ -1,0 +1,11 @@
+.delete-bookmark-button
+{
+    display: inline-block;
+    position: relative;
+    right: 35%;
+}
+.delete-bookmark-button:hover
+{
+    cursor: pointer;
+    color: rgb(251, 54, 54);
+}

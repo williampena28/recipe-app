@@ -101,5 +101,22 @@ export const deleteBookmark = async (id) =>
         method: 'DELETE',
         url: `/delete-from-bookmarks/${id}`
     })
-    console.log('DELETE request suc')
+    console.log('DELETE request successful')
+}
+
+// UPDATE bookmark instructions
+export const updateBookmark = async (id, newInstructions) =>
+{
+    const data = 
+    { 
+        instructions: 'newInstructions'
+    }
+
+    let response = await axios({
+        method: 'PUT',
+        url: `/update_bookmark/id`,
+        data: data
+    })
+
+    console.log('UPDATE request successful');
 }
