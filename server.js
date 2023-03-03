@@ -46,28 +46,28 @@ app.get('/get-meal/:mealId', async (req, res) =>
     res.json(meal)
 })
 
-// get meal data from the bookmarks db
+// GET meal data from the bookmarks db
 app.get('/get-bookmarks-data', async (req, res) =>
 {
     let bookmarks = await MyMeal.find({})
     res.send(bookmarks);
 })
 
-// get bookmark data by id
+// GET bookmark data by id
 app.get('/get-bookmark/:id', async (req, res) =>
 {
     let response = await MyMeal.findById(req.params.id)
     res.send(response);
 })
 
-// add the meal to our bookmarks
+// ADD the meal to our bookmarks
 app.post('/add-to-bookmarks', async (req, res) =>
 {
     let newMeal = await MyMeal.create(req.body);
     res.send(newMeal);
 })
 
-// delete a meal from our bookmarks
+// DELETE a meal from our bookmarks
 app.delete('/delete-from-bookmarks/:mealId', async (req, res) =>
 {
     let response = await MyMeal.findOneAndDelete(req.params.mealId).then((meal) =>

@@ -22,7 +22,7 @@ export const getMealById = async (id) =>
     return mealData
 }
 
-// function to add a meal to our bookmark database
+// ADD a meal to our bookmark database
 export const addToBookMarks = async (meal) =>
 {
 
@@ -72,7 +72,7 @@ export const addToBookMarks = async (meal) =>
     console.log('Meal has been added to bookmarks!')
 }
 
-// function to get the bookmarks data from the database
+// GET the bookmarks data from the database
 export const getBookMarkData = async () =>
 {
     let bookmarkData = await axios({
@@ -83,7 +83,7 @@ export const getBookMarkData = async () =>
     return bookmarkData
 }
 
-// function to get bookmark data by their _id
+// GET bookmark data by their _id
 export const getBookmarkById = async (id) =>
 {
     let bookmark = await axios({
@@ -92,4 +92,14 @@ export const getBookmarkById = async (id) =>
     })
 
     return bookmark;
+}
+
+// DELETE bookmark data from the database by their _id
+export const deleteBookmark = async (id) =>
+{
+    let response = await axios({
+        method: 'DELETE',
+        url: `/delete-from-bookmarks/${id}`
+    })
+    console.log('DELETE request suc')
 }

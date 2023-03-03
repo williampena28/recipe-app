@@ -3,6 +3,7 @@ import { getBookMarkData } from '../../utilities/userFunctions'
 import { useNavigate } from 'react-router-dom'
 import './index.css'
 
+
 const DisplayBookmarks = () => {
 
   const navigate = useNavigate();
