@@ -109,12 +109,12 @@ export const updateBookmark = async (id, newInstructions) =>
 {
     const data = 
     { 
-        instructions: 'newInstructions'
+        instructions: newInstructions.instructions
     }
 
     let response = await axios({
         method: 'PUT',
-        url: `/update_bookmark/id`,
+        url: `/update_bookmark/${id}`,
         data: data
     })
 

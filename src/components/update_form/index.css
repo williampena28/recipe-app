@@ -1,0 +1,15 @@
+.form-wrap
+{
+    display: flex;
+    flex-direction: column;
+}
+.form-input-wrap
+{
+    margin: 0 auto;
+    height: 20px;
+    width: 600px;
+}
+.form-submit-button
+{
+    margin: 0 auto;
+}
