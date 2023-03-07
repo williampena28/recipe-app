@@ -2,38 +2,68 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getMeals } from '../../utilities/userFunctions.js'
 
-const DisplayRecipes = () => {
+const DisplayRecipes = (props) => {
 
   // declare navigate for redirection of the url
   const navigate = useNavigate();
 
+  const [searchString, setSearchString] = useState('')
   const [recipes, setRecipes] = useState([])
 
-  const apiCall = async () =>
+  // form handlers
+  const handleInputChange = (event) =>
   {
-    let response = await getMeals();
-    let mealList = response.data.meals;
-    setRecipes(mealList)
-    console.log(mealList);
+    let newValue = event.target.value;
+    setSearchString(newValue);
   }
 
-  useEffect(() =>
+  const handleSubmit = async (event) =>
   {
-    apiCall()
-  }, []);
+    event.preventDefault();
+    let returnedData = await getMeals(searchString)
+    setRecipes(returnedData.data.meals);
+  }
 
-  let mealJSX = recipes.map((meal, index) =>
+  // error handling; return header if no recipe is found via search bar
+  let performSearch = (mealData) =>
   {
-    return(
-      <div className='card' key={index} onClick={() => navigate(`/recipe/${meal.idMeal}`)}>
-        <p>{meal.strMeal}</p>
-      </div>
-    )
-  })
+    if(mealData === null)
+    {
+      return(
+        <div>
+          <h2>No recipes found.</h2>
+        </div>
+      )
+    }
+    else
+    {
+      return mealData.map((meal, index) =>
+      {
+        return(
+          <div className='card' key={index} onClick={() => navigate(`/recipe/${meal.idMeal}`)}>
+            <p>{meal.strMeal}</p>
+          </div>
+        )
+      })
+    }
+  }
+
+  let mealJSX = performSearch(recipes);
 
   return (
     <div className='meal-wrap'>
-      <h1>Recipe List:</h1>
+      <form className='form-wrap' onSubmit={handleSubmit}>
+        <label htmlFor="name">Search Recipe:</label>
+        <input className='form-input-wrap'
+          type="text"
+          id="instructions"
+          name="instructions"
+          value={searchString}
+          onChange={handleInputChange}
+          required
+        />
+        <button className='form-submit-button' type="submit">Search</button>
+      </form>
       {mealJSX}
     </div>
   )

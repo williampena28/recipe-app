@@ -27,11 +27,11 @@ app.get("/", (req, res) =>
     res.send("Good route!")
 })
 
-app.get('/get-meal-data', async (req, res) =>
+app.get('/get-meal-data/:mealString', async (req, res) =>
 {
     // call API
-    // this route gives us all meals with the first letter 'a'
-    let response = await axios("https://www.themealdb.com/api/json/v1/1/search.php?f=c")
+    // this route gives us all meals that match the mealString
+    let response = await axios(`https://www.themealdb.com/api/json/v1/1/search.php?s=${req.params.mealString}`)
     let meal = response.data;
     // console.log(meal)
     res.json(meal)

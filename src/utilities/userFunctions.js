@@ -1,11 +1,11 @@
 import axios from "axios";
 
 // api call to get the meal data from themealdb
-export const getMeals = async () =>
+export const getMeals = async (mealString) =>
 {
     let mealData = await axios({
         method: 'GET',
-        url: '/get-meal-data'
+        url: `/get-meal-data/${mealString}`
     });
 
     return mealData
