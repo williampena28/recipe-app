@@ -2,7 +2,13 @@
 
 ## introduction:
 
-This react app is for those who want to keep track of all their favorite meals in one webpage as it uses https://www.themealdb.com/ free API that gives the application access to it's 100+ recipe database. It features a nav bar which lets you alternate between your bookmarks tab and a main page where the user is able to search for any recipes that is available on themealdb. For the user's bookmarks, they are able to update the instructions on how to make the recipe that was bookmarked for any special changes they would like to make before making their meal.  
+This react app is for those who want to keep track of all their favorite meals in one webpage as it uses https://www.themealdb.com/ free API that gives the application access to it's 100+ recipe database. It features a nav bar which lets you alternate between your bookmarks tab and a main page where the user is able to search for any recipes that is available on themealdb. For the user's bookmarks, they are able to update the instructions on how to make the recipe that was bookmarked for any special changes they would like to make before making their meal.
+
+![alt text][main_page]
+![alt text][bookmarks_page]
+
+[main_page]:./src/images/main%20page.png
+[bookmarks_page]: ./src/images/bookmarks.png
 
 ### Technologies Used:
 
@@ -16,9 +22,9 @@ Into the command terminal, use `git clone https://github.com/williampena28/recip
 To view the actual page for this app, go to https://mod-3.onrender.com
 
 ### Unsolved Problems: List any unsolved issues.
-- Users looking to run their own dev envirnoment for this app may need to adjust the config.js for a proper connection to their mongodb.
+- On the hosted site (render), users may need to refresh the page in order to see the updated bookmarks collection when redirected
 
 ### Future Enhancements: Identify future features and enhancements planned for the project.
-- A working passport functionality so that users may sign up and log in to view their own recipes they may have bookmarked.
+- A working passport functionality so that users may sign up and log in to view their own recipes they may have bookmarked instead of a global one.
 
 - A 'Surprise me!' tab on the nav bar where the user will be redirected to page where they are given a random recipe.
