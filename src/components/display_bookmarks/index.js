@@ -28,6 +28,7 @@ const DisplayBookmarks = () => {
   {
     return(
       <div className='card' key={index} onClick={() => navigate(`/bookmark/${bookmark._id}`)}>
+        <img className='image-box' src={bookmark.imgUrl} width='200' height='200' alt='food'/>
         <p>{bookmark.name}</p>
       </div>
     )

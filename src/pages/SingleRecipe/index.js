@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getMealById } from '../../utilities/userFunctions';
+import { useNavigate } from 'react-router-dom';
 import AddToBookMarks from '../../components/add_to_bookmarks_button';
 import './index.css'
 
 const RecipePage = () => {
+
+  let navigate = useNavigate();
 
   // grab the mealId param from the url
   let mealId = useParams();
@@ -41,7 +44,7 @@ const RecipePage = () => {
 
   return (
     <div className='recipe-box'>
-      <AddToBookMarks currentMeal={meal}/>
+      <AddToBookMarks currentMeal={meal} onClick={() => navigate(`/`)}/>
       {mealJSX}
     </div>
   )

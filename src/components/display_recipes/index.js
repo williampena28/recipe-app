@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getMeals } from '../../utilities/userFunctions.js'
+import './index.css'
 
 const DisplayRecipes = (props) => {
 
@@ -41,6 +42,7 @@ const DisplayRecipes = (props) => {
       {
         return(
           <div className='card' key={index} onClick={() => navigate(`/recipe/${meal.idMeal}`)}>
+            <img className='image-box' src={meal.strMealThumb} width='200' height='200' alt='food'/>
             <p>{meal.strMeal}</p>
           </div>
         )

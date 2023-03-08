@@ -1,0 +1,21 @@
+.card
+{
+    background-color: #ffdb58;
+    width: 400px;
+    height: 267px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 50px;
+    position: relative;
+}
+.image-box
+{
+    position: absolute;
+    left: 100px;
+    bottom: 30px;
+}
+.card:hover
+{
+    background-color: #eac439;
+    cursor: pointer;
+}
